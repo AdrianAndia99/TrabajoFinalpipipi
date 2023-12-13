@@ -11,6 +11,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] protected BoxCollider2D boxCollider;
     protected Transform positionPlayer;
     [SerializeField] protected float velocity;
+    public Puntaje _gm;
     protected virtual void Awake()
     {
         _rigidbody2D = GetComponent<Rigidbody2D>();
@@ -43,22 +44,31 @@ public class Enemy : MonoBehaviour
         {
             float a = other.gameObject.GetComponent<BulletVelocity>().damage;
             this.OnDamage(a);
+            _gm.puntajeConstante();
+            //print("hola");
         }
     }
     public void refPlayer(Transform transform)
     {
         positionPlayer = transform;
-        print("pipi");
+        //print("pipi");
     }
     public virtual void anotherTargetPlayer()
-    {
-        Vector2 direction = positionPlayer.position - transform.position;
-        direction.Normalize();
-        _rigidbody2D.velocity = direction*velocity;
+    {       
+        if(positionPlayer.gameObject != null)
+        {
+            Vector2 direction = positionPlayer.position - transform.position;
+            direction.Normalize();
+            _rigidbody2D.velocity = direction * velocity;
+        }       
     }
 
     protected void FixedUpdate()
     {
         anotherTargetPlayer();
+    }
+    public void gameManager(Puntaje gm)
+    {
+        this._gm = gm;
     }
 }

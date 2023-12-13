@@ -12,9 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Juego/PantallaJuego.unity
     guid: afb22ec0c172c4f47b2abc0ae7ce4fa3
   - enabled: 1
-    path: Assets/Scenes/EsenaMein/PantallaInicio.unity
-    guid: e8f1d7cf930b3dd40913b9f33f30db67
-  - enabled: 1
     path: Assets/Scenes/Perdiste/PantallaPerdiste.unity
     guid: a19b08db944f2ed419f7e38348623c95
+  - enabled: 1
+    path: Assets/Scenes/EsenaInicio/PantallaInicio.unity
+    guid: ee9ccc6d3fc79674d9bf24b0dfc9b0bf
   m_configObjects: {}

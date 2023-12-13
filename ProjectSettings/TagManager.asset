@@ -8,6 +8,7 @@ TagManager:
   - Enemigo
   - Pared
   - CirculoRango
+  - bala
   layers:
   - Default
   - TransparentFX

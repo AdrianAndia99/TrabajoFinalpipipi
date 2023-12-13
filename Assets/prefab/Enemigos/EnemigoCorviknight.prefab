@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83a9b64a05fd8694ca593a9855335cac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vida: 0
+  vida: 1
   _rigidbody2D: {fileID: 0}
   spriteRenderer: {fileID: 0}
   _audio: {fileID: 0}

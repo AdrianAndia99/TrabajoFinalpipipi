@@ -27,10 +27,5 @@ public class BulletVelocity : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
-        /*if(collision.gameObject.tag == "Enemigo")
-        {
-            Destroy(this.gameObject);
-            Destroy(collision.gameObject);
-        }*/
     }
 }

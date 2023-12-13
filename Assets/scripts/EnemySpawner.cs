@@ -2,11 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NewBehaviourScript : MonoBehaviour
+public class EnemySpawner : MonoBehaviour
 {
     public Enemy[] enemyPrefab;
     public Transform targetPlayer;
     public float tiempo;
+    public Puntaje controlaPuntos;
     void Update()
     {
         tiempo = tiempo + Time.deltaTime;
@@ -24,5 +25,6 @@ public class NewBehaviourScript : MonoBehaviour
         Vector2 positionEnemy = new Vector2(x,y);
         GameObject enemigo = Instantiate(enemyPrefab[randomEnemy].gameObject, positionEnemy, transform.rotation);
         enemigo.GetComponent<Enemy>().refPlayer(targetPlayer);
+        enemigo.GetComponent<Enemy>().gameManager(controlaPuntos);
     }
 }

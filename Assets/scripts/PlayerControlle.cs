@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class PlayerControlle : MonoBehaviour
 {
@@ -12,6 +11,7 @@ public class PlayerControlle : MonoBehaviour
     public GameObject _bala;
     public Transform _guardabala;
     private Vector2 direccionbala;
+    public GamecontrolXD gameController;
 
     void Start()
     {
@@ -48,13 +48,12 @@ public class PlayerControlle : MonoBehaviour
     {
         if(collision.gameObject.tag == "Enemigo")
         {
-            Destroy(this.gameObject);
-
+            Destroy(collision.gameObject);
+            gameController.Perder();
         }
     }
     private void FixedUpdate()
     {
         _rigidbody2D.velocity = new Vector2(horizontal * speed, vertical * speed);
     }
-
 }

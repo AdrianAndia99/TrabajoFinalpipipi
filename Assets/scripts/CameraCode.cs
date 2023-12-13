@@ -12,7 +12,14 @@ public class CameraCode : MonoBehaviour
 
     void Update()
     {
-        transform.position = new Vector3(_personaje.transform.position.x, _personaje.transform.position.y,-10);
-         
+        if(_personaje != null)
+        {
+            transform.position = new Vector3(_personaje.transform.position.x, _personaje.transform.position.y, -10);
+        }
+        else
+        {
+            transform.position = new Vector3(0,0,0);
+        }
     }
+
 }
