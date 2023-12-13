@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerControlle : MonoBehaviour
 {
@@ -48,6 +49,7 @@ public class PlayerControlle : MonoBehaviour
         if(collision.gameObject.tag == "Enemigo")
         {
             Destroy(this.gameObject);
+
         }
     }
     private void FixedUpdate()
