@@ -12,4 +12,8 @@ public class EnemyGigant : Enemy
             transform.localScale = transform.localScale + new Vector3(1f, 1f, 0f);
         }
     }
+    public override void anotherTargetPlayer()
+    {
+        base.anotherTargetPlayer();
+    }
 }

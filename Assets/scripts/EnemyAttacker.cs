@@ -14,15 +14,19 @@ public class EnemyAttacker : Enemy
             disparoEnemigo();
         }
     }
-    public void disparoEnemigo()
+    void disparoEnemigo()
     {
         if (attactkTruFal.positionPlayer != null)
         {
             GameObject temp = Instantiate(dizparoEnemigo,transform.position,transform.rotation);
             temp.tag = this.gameObject.tag;
-           // Vector2 direction = 
-            temp.GetComponent<BulletVelocity>().VelocityBullet(attactkTruFal.positionPlayer.transform.position);
+            Vector2 direction = positionPlayer.position - transform.position;
+            direction.Normalize();
+            temp.GetComponent<BulletVelocity>().VelocityBullet(direction);
         }
-        
+    }
+    public override void anotherTargetPlayer()
+    {
+        base.anotherTargetPlayer();
     }
 }

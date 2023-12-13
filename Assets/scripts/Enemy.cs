@@ -9,6 +9,8 @@ public class Enemy : MonoBehaviour
     [SerializeField] protected SpriteRenderer spriteRenderer;
     [SerializeField] protected AudioSource _audio;
     [SerializeField] protected BoxCollider2D boxCollider;
+    protected Transform positionPlayer;
+    [SerializeField] protected float velocity;
     protected virtual void Awake()
     {
         _rigidbody2D = GetComponent<Rigidbody2D>();
@@ -42,5 +44,21 @@ public class Enemy : MonoBehaviour
             float a = other.gameObject.GetComponent<BulletVelocity>().damage;
             this.OnDamage(a);
         }
+    }
+    public void refPlayer(Transform transform)
+    {
+        positionPlayer = transform;
+        print("pipi");
+    }
+    public virtual void anotherTargetPlayer()
+    {
+        Vector2 direction = positionPlayer.position - transform.position;
+        direction.Normalize();
+        _rigidbody2D.velocity = direction*velocity;
+    }
+
+    protected void FixedUpdate()
+    {
+        anotherTargetPlayer();
     }
 }

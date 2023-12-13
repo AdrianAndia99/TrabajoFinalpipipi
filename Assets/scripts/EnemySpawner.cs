@@ -4,17 +4,13 @@ using UnityEngine;
 
 public class NewBehaviourScript : MonoBehaviour
 {
-    public GameObject [] enemyPrefab;
+    public Enemy[] enemyPrefab;
     public Transform targetPlayer;
     public float tiempo;
-    void Start()
-    {
-        
-    }
     void Update()
     {
         tiempo = tiempo + Time.deltaTime;
-        if (tiempo >= 5)
+        if (tiempo >= 5 && targetPlayer !=null)
         {
             CreateEnemy();
             tiempo = 0;
@@ -26,7 +22,7 @@ public class NewBehaviourScript : MonoBehaviour
         int y = Random.Range(0, 4);
         int randomEnemy = Random.Range(0, enemyPrefab.Length);
         Vector2 positionEnemy = new Vector2(x,y);
-        GameObject enemigo = Instantiate(enemyPrefab[randomEnemy], positionEnemy, transform.rotation);
-        enemigo.GetComponent<EnemyControler>().FollowPlayer(targetPlayer);
+        GameObject enemigo = Instantiate(enemyPrefab[randomEnemy].gameObject, positionEnemy, transform.rotation);
+        enemigo.GetComponent<Enemy>().refPlayer(targetPlayer);
     }
 }
