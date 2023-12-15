@@ -9,7 +9,8 @@ public class Puntaje : MonoBehaviour
     public Text texto;
     public void puntajeConstante()
     {
-        _puntaje = Random.Range(0, 5);
+        _puntaje += Random.Range(1, 5);
+        
         texto.text = "Puntos: " + _puntaje.ToString();
     }
 

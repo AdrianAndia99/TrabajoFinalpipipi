@@ -100,13 +100,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83a9b64a05fd8694ca593a9855335cac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vida: 1
+  vida: 2
   _rigidbody2D: {fileID: 0}
   spriteRenderer: {fileID: 0}
   _audio: {fileID: 0}
   boxCollider: {fileID: 0}
   velocity: 1
-  dizparoEnemigo: {fileID: 1224321864475970856, guid: 7123845c9dc5db44589ada5764a9b441, type: 3}
+  _gm: {fileID: 0}
+  dizparoEnemigo: {fileID: 1224321864475970856, guid: e8e9b61f2e4709840b120f5335162f88, type: 3}
   attactkTruFal: {fileID: 121118451168172700}
 --- !u!61 &487039345197900940
 BoxCollider2D:

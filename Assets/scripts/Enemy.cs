@@ -20,11 +20,13 @@ public class Enemy : MonoBehaviour
     }
     protected void OnDamage(float damage)
     {
-        if(vida <= 0)
+        if(damage >= vida)
         {
             spriteRenderer.color = new Color(1, 0, 0, 1);
             boxCollider.enabled = false;
             Destroy(this.gameObject,0.5f);
+            _gm.puntajeConstante();
+            print("gaa");
         }
         else
         {
@@ -40,14 +42,19 @@ public class Enemy : MonoBehaviour
 
     protected virtual void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.tag == "Player")
+        try
         {
-            float a = other.gameObject.GetComponent<BulletVelocity>().damage;
-            this.OnDamage(a);
-            _gm.puntajeConstante();
-            //print("hola");
+            if (other.gameObject.tag == "bala")
+            {
+                float a = other.gameObject.GetComponent<BulletVelocity>().damage;
+                this.OnDamage(a);
+            }
+        }
+        catch (UnityException ex)
+        {
         }
     }
+
     public void refPlayer(Transform transform)
     {
         positionPlayer = transform;

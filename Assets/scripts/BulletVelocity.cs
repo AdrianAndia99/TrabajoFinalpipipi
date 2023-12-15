@@ -12,10 +12,6 @@ public class BulletVelocity : MonoBehaviour
     {
         _rigidbody2D = GetComponent<Rigidbody2D>();
     }
-    void Start()
-    {
-
-    }
     public void VelocityBullet(Vector2 velocity2)
     {
         _rigidbody2D.velocity = velocity2 * velocity1;

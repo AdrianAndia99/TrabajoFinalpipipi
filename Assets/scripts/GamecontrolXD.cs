@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class GamecontrolXD : MonoBehaviour
 {
-    
     public void Perder() 
     {
         SceneManager.LoadScene("PantallaPerdiste");

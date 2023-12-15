@@ -8,10 +8,11 @@ public class EnemySpawner : MonoBehaviour
     public Transform targetPlayer;
     public float tiempo;
     public Puntaje controlaPuntos;
+    public AudioClip[] audioClips;
     void Update()
     {
         tiempo = tiempo + Time.deltaTime;
-        if (tiempo >= 5 && targetPlayer !=null)
+        if (tiempo >= 5 && targetPlayer != null)
         {
             CreateEnemy();
             tiempo = 0;
@@ -24,7 +25,11 @@ public class EnemySpawner : MonoBehaviour
         int randomEnemy = Random.Range(0, enemyPrefab.Length);
         Vector2 positionEnemy = new Vector2(x,y);
         GameObject enemigo = Instantiate(enemyPrefab[randomEnemy].gameObject, positionEnemy, transform.rotation);
+        AudioSource audio = GetComponent<AudioSource>();
+        audio.clip = audioClips[randomEnemy];
+        audio.Play();
         enemigo.GetComponent<Enemy>().refPlayer(targetPlayer);
         enemigo.GetComponent<Enemy>().gameManager(controlaPuntos);
+
     }
 }

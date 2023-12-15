@@ -99,12 +99,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdade6ea5e6d8cb4e8bf08cba8cb6f47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vida: 1
+  vida: 2
   _rigidbody2D: {fileID: 0}
   spriteRenderer: {fileID: 0}
   _audio: {fileID: 0}
   boxCollider: {fileID: 0}
   velocity: 1
+  _gm: {fileID: 0}
 --- !u!61 &2418475091584250436
 BoxCollider2D:
   m_ObjectHideFlags: 0

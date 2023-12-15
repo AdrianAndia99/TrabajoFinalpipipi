@@ -12,6 +12,8 @@ public class PlayerControlle : MonoBehaviour
     public Transform _guardabala;
     private Vector2 direccionbala;
     public GamecontrolXD gameController;
+    public AudioSource audioGrito;
+    private int puntaje = 0;
 
     void Start()
     {
@@ -37,11 +39,12 @@ public class PlayerControlle : MonoBehaviour
         {
             horizontal = Input.GetAxisRaw("Horizontal");
         }
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             GameObject gameObjectBala = Instantiate(_bala, transform.position, transform.rotation, _guardabala);
-            gameObjectBala.tag = this.gameObject.tag;
             gameObjectBala.GetComponent<BulletVelocity>().VelocityBullet(direccionbala);
+            audioGrito.Play();
+
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
@@ -55,5 +58,10 @@ public class PlayerControlle : MonoBehaviour
     private void FixedUpdate()
     {
         _rigidbody2D.velocity = new Vector2(horizontal * speed, vertical * speed);
+    }
+    public void IncrementoPuntaje(int puntosGanados)
+    {
+        puntaje = puntaje + puntosGanados;
+
     }
 }
